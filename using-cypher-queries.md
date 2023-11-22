@@ -9,9 +9,15 @@ Let’s execute a few Cypher commands to play with Neo4j graph database.
 ```
 Call db.schema.visualization
 ```
+
+It shows us `What is related, and how`
 We will get following output:
 
 ![db_schema_visualization](./images/db-schema-visualization.png)
+
+
+
+We can also use the command `:schema` to display constraints and indexes
 
 
 2. Let’s count the `number of nodes` in movie database. Execute the following query:
@@ -43,6 +49,11 @@ Output for Movie node count is `38` and Person node count is `131`
 ```
 MATCH ()-[r]->()
 RETURN count(r) as count
+```
+
+This command can also be written as:
+```sql
+MATCH ()-->() RETURN count(*);
 ```
 
 Output is `250`
@@ -89,5 +100,63 @@ Output is `172`
 
 ![Person-node-ACTED_IN-relationships](images/Person-node-ACTED_IN-relationships.png)
 
+---
+---
 
-   
+## Pattern Match    
+
+```sql
+MATCH p=()-[:ACTED_IN]->() RETURN p LIMIT 25;
+```
+
+## Node Creation
+
+```sql
+create (:Person {name:"Faaiz"})
+```
+
+## Relationship Creation
+
+```sql
+MATCH (p:Person), (m:Movie)
+WHERE a.name = 'Faaiz' AND m.title = 'The Matrix'
+CREATE (p)-[:ACTED_IN]->(m)
+RETURN a, c
+```
+
+## Basic Queries
+
+### Retrieve generic nodes and relationships
+
+```sql
+
+MATCH (n1)-[r]->(n2) 
+RETURN r, n1, n2 LIMIT 25
+```
+
+### Create a new node with labels and relationship types
+
+```sql
+// Hello World!
+CREATE (database:Database {name:"TestDB"})-[r:SAYS]->(message:Message {name:"Hello World!"}) 
+RETURN database, message, r
+```
+
+### Create Example Data on Neo4j dataset
+
+```sql
+// Movie Graph
+:play movie-graph
+```
+
+### Get list of node labels
+
+```sql
+CALL db.labels()
+```
+
+### Get list of relationship types
+
+```sql
+CALL db.relationshipTypes()
+```
