@@ -1,16 +1,23 @@
-# Introdcution
+# Course Outline:
 
-bala..bla
+Following is a tentative outline of the course
 
-# Installation
+## Introdcution
 
-bala..bla
-# Cypher
+To be added...
 
-Difference between usage of CREATE / MATCH / MERGE
+## Installations
 
-# Graph Data Science
+To be added...
 
-bala..bla
+## Cypher
 
-# Project
+To be added...
+
+## Graph Data Science
+
+To be added...
+
+## Project
+
+To be added...

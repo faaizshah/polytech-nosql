@@ -11,7 +11,7 @@ Call db.schema.visualization
 ```
 We will get following output:
 
-![db_schema_visualization](./images/db_schema_visualization.png)
+![db_schema_visualization](./images/db-schema-visualization.png)
 
 
 2. Let’s count the `number of nodes` in movie database. Execute the following query:
